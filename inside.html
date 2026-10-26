@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Клуб Адского Пламени — Регистрация</title>
+    <style>
+        body {
+            background-color: #111111;
+            color: rgb(220, 220, 220);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: hsl(0, 100%, 50%);
+            text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.5);
+        }
+        .nav-menu {
+            background-color: rgb(30, 30, 30);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .nav-menu a {
+            color: hsl(195, 100%, 50%);
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Стилизация формы и fieldset */
+        fieldset {
+            border: 2px solid #e50914;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        legend {
+            color: #fff;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* ТРЕБОВАНИЕ: CSS-стилизация состояний :focus, :valid и :invalid */
+        /* 1. Когда нажимаем на поле (:focus) — оно подсвечивается синим */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: hsl(195, 100%, 50%);
+            box-shadow: 0 0 8px rgba(0, 150, 255, 0.5);
+        }
+        /* 2. Если обязательное поле заполнено правильно (:valid) — рамка становится зелёной */
+        input:required:valid, textarea:required:valid {
+            border-color: #2ecc71;
+        }
+        /* 3. Если обязательное поле пустое или заполнено неверно (:invalid) — рамка становится красной */
+        input:required:invalid, textarea:required:invalid {
+            border-color: #e74c3c;
+        }
+
+        button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b30710;
+        }
+        iframe {
+            border: 2px solid #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>КЛУБ АДСКОГО ПЛАМЕНИ (HELLFIRE CLUB)</h1>
+
+    <!-- Навигация -->
+    <div class="nav-menu">
+        <strong>Навигация:</strong>
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание Лаборатории</a>
+        <a href="inside.html">Вступить в Клуб</a>
+    </div>
+
+    <h2>Анкета новобранца для борьбы с Векной</h2>
+
+    <!-- ФОРМА С ВАЛИДАЦИЕЙ И РАЗНЫМИ ТИПАМИ INPUT -->
+    <form action="#" method="POST">
+        
+        <!-- Элементы fieldset и legend по заданию -->
+        <fieldset>
+            <legend>Личные данные игрока в D&D</legend>
+            
+            <div class="form-group">
+                <label for="username">Ваше кодовое имя (минимум 4 символа):</label>
+                <!-- input type="text", placeholder, required, minlength -->
+                <input type="text" id="username" name="username" placeholder="Например, Дастин" required minlength="4">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail для связи в эфире:</label>
+                <!-- input type="email" -->
+                <input type="email" id="email" name="email" placeholder="example@hawkins.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Секретный пароль от штаба:</label>
+                <!-- input type="password" -->
+                <input type="password" id="password" name="password" placeholder="Введите сложный пароль" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Боевые навыки и кастомизация</legend>
+
+            <!-- input type="radio" -->
+            <div class="form-group">
+                <label>Ваша роль в команде:</label>
+                <input type="radio" id="role1" name="team-role" value="paladin" checked> <label style="display:inline;" for="role1">Паладин</label><br>
+                <input type="radio" id="role2" name="team-role" value="mage"> <label style="display:inline;" for="role2">Маг</label><br>
+                <input type="radio" id="role3" name="team-role" value="ranger"> <label style="display:inline;" for="role3">Рейнджер</label>
+            </div>
+
+            <!-- input type="checkbox" -->
+            <div class="form-group">
+                <label>Какое оружие берёте с собой? (Можно несколько):</label>
+                <input type="checkbox" id="wpn1" name="weapon" value="slingshot"> <label style="display:inline;" for="wpn1">Рогатка Лукаса</label><br>
+                <input type="checkbox" id="wpn2" name="weapon" value="bat"> <label style="display:inline;" for="wpn2">Бита Стива с гвоздями</label><br>
+                <input type="checkbox" id="wpn3" name="weapon" value="guitar"> <label style="display:inline;" for="wpn3">Электрогитара Эдди Мансона</label>
+            </div>
+
+            <!-- Элемент select -->
+            <div class="form-group">
+                <label for="location">Где вы застряли?</label>
+                <select id="location" name="location">
+                    <option value="hawkins">В обычном Хоукинсе</option>
+                    <option value="upside-down">В Изнанке (The Upside Down)</option>
+                    <option value="lab">В подвалах лаборатории</option>
+                </select>
+            </div>
+
+            <!-- Элемент datalist -->
+            <div class="form-group">
+                <label for="monster-input">Какого монстра вы видели рядом? (Выбор из списка):</label>
+                <input list="monsters-list" id="monster-input" name="monster" placeholder="Начните вводить...">
+                <datalist id="monsters-list">
+                    <option value="Демодог">
+                    <option value="Демогоргон">
+                    <option value="Истязатель Разума">
+                    <option value="Векна">
+                </datalist>
+            </div>
+
+            <!-- Элемент range (ползунок) -->
+            <div class="form-group">
+                <label for="fear">Уровень страха перед Векной (от 0 до 100):</label>
+                <input type="range" id="fear" name="fear" min="0" max="100" value="50">
+            </div>
+
+            <!-- Элемент color (выбор цвета) -->
+            <div class="form-group">
+                <label for="portal-color">Выберите цвет портала в Изнанку:</label>
+                <input type="color" id="portal-color" name="portal-color" value="#ff0000">
+            </div>
+
+            <!-- Элемент textarea -->
+            <div class="form-group">
+                <label for="message">Опишите вашу ситуацию (textarea):</label>
+                <textarea id="message" name="message" rows="4" placeholder="Напишите здесь ваше послание..." required></textarea>
+            </div>
+
+            <button type="submit">Отправить шифр в штаб</button>
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <!-- ТРЕБОВАНИЕ: Встроенный фрейм (iframe) -->
+    <h2>Карта Хоукинса из архивных съёмок</h2>
+    <p>Ниже подгружено официальное видео с атмосферой города через iframe:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/e0Eo0D038rQ?si=BdzM8Nl6zd3h1TYJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</body>
+</html>

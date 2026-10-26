@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Расписание Лаборатории Хоукинса</title>
+    <style>
+        body {
+            background-color: #111111;
+            color: rgb(220, 220, 220);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: hsl(0, 100%, 50%);
+            text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.5);
+        }
+        .nav-menu {
+            background-color: rgb(30, 30, 30);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .nav-menu a {
+            color: hsl(195, 100%, 50%);
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Стилизация таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #1a1a1a;
+        }
+        th, td {
+            border: 2px solid #333;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #e50914;
+            color: white;
+        }
+        caption {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: rgb(255, 255, 255);
+        }
+        
+        /* Цветовое выделение строк по заданию */
+        .danger-row {
+            background-color: rgba(255, 0, 0, 0.2); /* Красный оттенок для опасных опытов */
+        }
+        .standard-row {
+            background-color: rgba(0, 255, 0, 0.05); /* Зеленоватый для обычных тестов */
+        }
+        .clear-row {
+            background-color: rgba(0, 150, 255, 0.1); /* Синеватый для отдыха */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>СЕКРЕТНЫЙ ОБЪЕКТ: Лаборатория Департамента Энергии</h1>
+
+    <!-- Навигационное меню (все ссылки должны работать) -->
+    <div class="nav-menu">
+        <strong>Навигация:</strong>
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание Лаборатории</a>
+        <a href="inside.html">Вступить в Клуб</a>
+    </div>
+
+    <h2>График проведения испытаний и экспериментов</h2>
+
+    <!-- ТАБЛИЦА С ОБЪЕДИНЕНИЕМ И ЦВЕТОМ -->
+    <table>
+        <!-- Заголовок таблицы caption -->
+        <caption>График тестирования подопытных на неделю</caption>
+        
+        <thead>
+            <tr>
+                <th>Время</th>
+                <th>Понедельник</th>
+                <th>Вторник</th>
+                <th>Среда</th>
+            <th>Четверг</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Пример rowspan (объединение строк по вертикали) -->
+            <tr class="danger-row">
+                <td>09:00 - 12:00</td>
+                <td rowspan="2">Тестирование телекинеза (Одиннадцать)</td>
+                <td>Погружение в сенсорную депривацию</td>
+                <td>Калибровка электродов</td>
+                <td>Попытка контакта с объектом 001</td>
+            </tr>
+            <tr class="danger-row">
+                <td>12:00 - 14:00</td>
+                <!-- Тут ячейка для Понедельника удалена, так как её перекрыл rowspan выше -->
+                <td>Сканирование мозговых волн</td>
+                <td>Поиск сигналов в радиоэфире</td>
+                <td>Допрос доктора Бреннера</td>
+            </tr>
+            
+            <!-- Пример colspan (объединение колонок по горизонтали) -->
+            <tr class="clear-row">
+                <td>14:00 - 15:00</td>
+                <td colspan="4">ОБЕДЕННЫЙ ПЕРЕРЫВ И КОМЕНДАНТСКИЙ ЧАС (Доступ в блоки ограничен)</td>
+            </tr>
+            
+            <tr class="standard-row">
+                <td>15:00 - 18:00</td>
+                <td>Осмотр стен Прохода (Портала)</td>
+                <td>Тест на паранормальное внушение</td>
+                <td>Запись результатов в архив</td>
+                <td>Проверка систем безопасности</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
